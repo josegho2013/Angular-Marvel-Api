@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,24 +8,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {  HttpClientModule  } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule   } from '@angular/material/toolbar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CardComponent,
-    NavbarComponent,
-   
-   
-   
-  ],
+  declarations: [AppComponent, HomeComponent, CardComponent, NavbarComponent],
   imports: [
     BrowserModule,
+    CommonModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule 
+    FlexLayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

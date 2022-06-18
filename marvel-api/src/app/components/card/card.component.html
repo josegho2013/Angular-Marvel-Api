@@ -1,1 +1,12 @@
-<p>card works!</p>
+<div class="card">
+  <img
+    src="{{ character?.thumbnail?.path }}.{{ character?.thumbnail?.extension }}"
+    alt="{{ character?.name }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ character?.name }}</h5>
+    <a link href="{{ character.urls[0].url }}" target="_blank">
+      <Button variant="info" type="submit" button> Details </Button>
+    </a>
+  </div>
+</div>
