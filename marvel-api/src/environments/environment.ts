@@ -2,18 +2,15 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-// export const environment = {
-//   production: false
-// };
-
 export const environment = {
   production: false,
-  apiUrl: 'http://gateway.marvel.com/v1/public/',
-  apiKey: '55a7f9bcaff2a14a6ea94afcda366b0',
+  URL_API: 'https:gateway.marvel.com/v1/public/',
+  PUBLIC_KEY: '755a7f9bcaff2a14a6ea94afcda366b0',
+  HASH: 'a0025515cbdcbf8a3694176e3bcdc57d',
   settings: {
-    appErrorPrefix: '[Angular Heroes Error] ',
-    appTitle: 'Angular Heroes',
-    version: '0.0.0',
+    appErrorPrefix: '[Angular Marvel Error] ',
+    appTitle: 'Angular Marvel',
+    version: '1.4.0',
     charactersLimit: 20
   }
 };

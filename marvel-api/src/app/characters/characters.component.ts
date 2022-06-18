@@ -1,14 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServiceService } from 'src/services/service.service';
+import { CharactersService } from './services/characters.service';
 import { EMPTY, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-characters',
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.css'],
 })
-export class HomeComponent implements OnInit {
-  constructor(private characterService: ServiceService) {}
+
+export class CharactersComponent implements OnInit {
+  constructor(private characterService: CharactersService) {}
   allCharacters: Observable<any> = EMPTY;
   @Input() character: any;
   

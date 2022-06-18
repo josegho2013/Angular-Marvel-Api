@@ -1,0 +1,20 @@
+.navbar_container {
+    display: flex;
+  margin: auto;
+  padding: 50px 9%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  font-family: "Urbanist";
+  }
+
+  .search input {
+    margin-right: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+
+  }
