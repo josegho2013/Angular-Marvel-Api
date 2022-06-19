@@ -1,1 +1,5 @@
-<p>series works!</p>
+<div class="cards">
+  <div *ngFor="let serie of allSeries | async">
+    <app-card-series [serie]="serie"></app-card-series>
+  </div>
+</div>

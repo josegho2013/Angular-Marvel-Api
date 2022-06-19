@@ -2,9 +2,12 @@
   <img
     src="{{ character?.thumbnail?.path }}.{{ character?.thumbnail?.extension }}"
     alt="{{ character?.name }}"
+    (click)="goToDetail(character?.id)"
   />
   <div class="card-body">
     <h5 class="card-title">{{ character?.name }}</h5>
+    <h5 class="card-title">N° Comics: {{ character?.stories?.available }}</h5>
+    <h5 class="card-title">N° Series: {{ character?.series?.available }}</h5>
     <a link href="{{ character.urls[0].url }}" target="_blank">
       <Button variant="info" type="submit" button> Details </Button>
     </a>

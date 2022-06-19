@@ -3,6 +3,6 @@
   grid-template-columns: repeat(3, auto);
   justify-content: space-around;
 }
-:card {
+.card {
   margin: 2rem;
 }

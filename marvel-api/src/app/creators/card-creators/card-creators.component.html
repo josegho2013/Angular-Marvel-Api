@@ -1,0 +1,11 @@
+<div class="card">
+  <img
+    src="{{ creator?.thumbnail?.path }}.{{ creator?.thumbnail?.extension }}"
+    alt="{{ creator?.title }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ creator?.fullName }}</h5>
+    <h5 class="card-title">N° Comics: {{ creator?.comics?.available }}</h5>
+    <h5 class="card-title">N° Series: {{ creator?.series?.available }}</h5>
+  </div>
+</div>

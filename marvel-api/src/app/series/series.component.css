@@ -1,0 +1,8 @@
+* {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+  }
+  .card {
+    margin: 2rem;
+  }

@@ -15,6 +15,9 @@ import { FooterComponent } from './features/footer/footer.component';
 import { SeriesComponent } from './series/series.component';
 import { ComicsComponent } from './comics/comics.component';
 import { CreatorsComponent } from './creators/creators.component';
+import { CardComicsComponent } from './comics/card-comics/card-comics.component';
+import { CardCreatorsComponent } from './creators/card-creators/card-creators.component';
+import { CardSeriesComponent } from './series/card-series/card-series.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { CreatorsComponent } from './creators/creators.component';
     SeriesComponent,
     ComicsComponent,
     CreatorsComponent,
+    CardComicsComponent,
+    CardCreatorsComponent,
+    CardSeriesComponent,
   ],
   imports: [
     BrowserModule,

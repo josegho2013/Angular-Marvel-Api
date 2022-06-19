@@ -1,1 +1,5 @@
-<p>creators works!</p>
+<div class="cards">
+  <div *ngFor="let creator of allCreators | async">
+    <app-card-creators [creator]="creator"></app-card-creators>
+  </div>
+</div>

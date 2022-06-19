@@ -10,7 +10,7 @@ import { EMPTY, Observable } from 'rxjs';
 export class ComicsComponent implements OnInit {
   constructor(private comicsService: ComicsService) {}
   allComics: Observable<any> = EMPTY;
-  @Input() character: any;
+  @Input() comic: any;
 
   ngOnInit() {
     this.getComics();

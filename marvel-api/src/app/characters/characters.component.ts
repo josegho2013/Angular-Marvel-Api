@@ -7,12 +7,12 @@ import { EMPTY, Observable } from 'rxjs';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css'],
 })
-
 export class CharactersComponent implements OnInit {
   constructor(private characterService: CharactersService) {}
   allCharacters: Observable<any> = EMPTY;
+
   @Input() character: any;
-  
+
   ngOnInit() {
     this.getCharacters();
   }

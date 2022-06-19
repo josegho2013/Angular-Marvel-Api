@@ -1,1 +1,14 @@
-<p>card-detail works!</p>
+<div class="cards">
+    <div *ngFor="let detail of characterById | async">
+        hola
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+    <div *ngFor="let comics of characteIdComics | async">
+        holita
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+    <div *ngFor="let series of characterIdSeries | async">
+        holota
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+  </div>

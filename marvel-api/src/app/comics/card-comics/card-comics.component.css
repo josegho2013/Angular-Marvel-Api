@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;600&display=swap");
+
+img {
+  width: 22rem;
+  background: #435560;
+  border: solid 0.4rem #435560;
+  border-radius: 1rem 1rem 0rem 0rem;
+  display: flex;
+  min-height: 374px;
+  max-height: 374px;
+}
+.card {
+  margin: 2rem;
+}
+.card-body {
+  margin-top: 0.2rem;
+  background: #c8c6a7;
+  border-radius: 0rem 0rem 1rem 1rem;
+  border: solid 0.1rem #435560;
+}
+.card-title {
+  font-family: "Urbanist";
+  font-feature-settings: "smcp";
+  font-variant: small-caps;
+  margin: 12px;
+}
+a {
+  margin-right: 1rem;
+}
+a.button {
+  margin-right: 0.8rem;
+  background-color: #6c757d;
+  border: solid 0.1rem #6c757d;
+}
