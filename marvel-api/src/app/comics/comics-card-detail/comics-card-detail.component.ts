@@ -12,7 +12,7 @@ export class ComicsCardDetailComponent implements OnInit {
 
   constructor( private comicsService :ComicsService ,private route: ActivatedRoute  ) { }
   comicsById: Observable<any> = EMPTY;
-  comicsIdCharacter: Observable<any> = EMPTY;
+  comicsIdCharacters: Observable<any> = EMPTY;
   comicsIdCreators: Observable<any> = EMPTY;
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class ComicsCardDetailComponent implements OnInit {
   }
   getComicsIdCharacter() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.comicsIdCharacter = this.comicsService.getComicsIdCharacter(id);
+    this.comicsIdCharacters = this.comicsService.getComicsIdCharacter(id);
   }
   getComicsIdCreators() {
     const id = Number(this.route.snapshot.paramMap.get('id'));

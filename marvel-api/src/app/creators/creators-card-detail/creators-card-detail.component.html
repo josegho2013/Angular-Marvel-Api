@@ -1,1 +1,15 @@
-<p>creators-card-detail works!</p>
+<div class="cards">
+    <div *ngFor="let creator of creatorsById | async">
+        hola001
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+    <div *ngFor="let comics of creatorsIdComics | async">
+        hola002
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+    <div *ngFor="let series of creatorsIdSeries | async">
+        hola003
+      <!-- <app-card [character]="character"></app-card> -->
+    </div>
+  </div>
+

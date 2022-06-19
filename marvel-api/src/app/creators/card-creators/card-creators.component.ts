@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-card-creators',
   templateUrl: './card-creators.component.html',
@@ -7,9 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardCreatorsComponent implements OnInit {
   @Input() creator: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  goToDetailCreators(id: number) {
+    console.log('ID: ', id);
+    this.router.navigate([`creators/detail/${id}`]);
   }
 
 }
