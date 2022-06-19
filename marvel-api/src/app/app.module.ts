@@ -18,6 +18,9 @@ import { CreatorsComponent } from './creators/creators.component';
 import { CardComicsComponent } from './comics/card-comics/card-comics.component';
 import { CardCreatorsComponent } from './creators/card-creators/card-creators.component';
 import { CardSeriesComponent } from './series/card-series/card-series.component';
+import { CreatorsCardDetailComponent } from './creators/creators-card-detail/creators-card-detail.component';
+import { ComicsCardDetailComponent } from './comics/comics-card-detail/comics-card-detail.component';
+import { SeriesCardDetailComponent } from './series/series-card-detail/series-card-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { CardSeriesComponent } from './series/card-series/card-series.component'
     CardComicsComponent,
     CardCreatorsComponent,
     CardSeriesComponent,
+    CreatorsCardDetailComponent,
+    ComicsCardDetailComponent,
+    SeriesCardDetailComponent,
   ],
   imports: [
     BrowserModule,

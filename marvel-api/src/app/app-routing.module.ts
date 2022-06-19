@@ -5,7 +5,7 @@ import { ComicsComponent } from './comics/comics.component';
 import { SeriesComponent } from './series/series.component';
 import { CreatorsComponent } from './creators/creators.component';
 import { CardDetailComponent } from './characters/card-detail/card-detail.component';
-
+import { ComicsCardDetailComponent } from './comics/comics-card-detail/comics-card-detail.component';
 const routes: Routes = [
   {
     path: '',
@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: `home/detail/:id`,
     component: CardDetailComponent,
+  },
+  {
+    path: `comics/detail/:id`,
+    component: ComicsCardDetailComponent,
   },
 ];
 

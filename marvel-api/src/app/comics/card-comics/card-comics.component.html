@@ -2,7 +2,9 @@
   <img
     src="{{ comic?.thumbnail?.path }}.{{ comic?.thumbnail?.extension }}"
     alt="{{ comic?.title }}"
+    (click)="goToDetailComics(comic?.id)"
   />
+
   <div class="card-body">
     <h5 class="card-title">{{ comic?.title }}</h5>
     <h5 class="card-title">Writer: {{ comic?.creators?.items[0]?.name }}</h5>

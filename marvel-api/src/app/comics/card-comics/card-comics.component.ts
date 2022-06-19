@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-comics',
@@ -7,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComicsComponent implements OnInit {
   @Input() comic: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
+  }
+  goToDetailComics(id: number) {
+    console.log('ID: ', id);
+    this.router.navigate([`comics/detail/${id}`]);
   }
 
 }

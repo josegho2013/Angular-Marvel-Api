@@ -35,4 +35,59 @@ export class ComicsService {
         catchError(this.handleError)
       );
   }
+  getComicsById(id: number): Observable<any> {
+    console.log('Si entro: ', id);
+    return this.http
+      .get<any>(`${environment.URL_API}comics/${id}`, {
+        params: {
+          ts: 1,
+          apikey: environment.PUBLIC_KEY,
+          hash: environment.HASH,
+        },
+      })
+      .pipe(
+        map((data: any) => {
+          console.log('Data getComicsById: ', data.data.results);
+          return data.data.results;
+        }),
+        catchError(this.handleError)
+      );
+  }
+  getComicsIdCharacter(id: number): Observable<any> {
+    return this.http
+      .get<any>(`${environment.URL_API}comics/${id}/characters`, {
+        params: {
+          ts: 1,
+          apikey: environment.PUBLIC_KEY,
+          hash: environment.HASH,
+        },
+      })
+      .pipe(
+        map((data: any) => {
+          console.log('Data getComicsIdCharacter: ', data.data.results);
+          return data.data.results;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  getComicsIdCreators(id: number): Observable<any> {
+    return this.http
+      .get<any>(`${environment.URL_API}comics/${id}/creators`, {
+        params: {
+          ts: 1,
+          apikey: environment.PUBLIC_KEY,
+          hash: environment.HASH,
+        },
+      })
+      .pipe(
+        map((data: any) => {
+          console.log('Data getComicsIdcreators: ', data.data.results);
+          return data.data.results;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+
 }
