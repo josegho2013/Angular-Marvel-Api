@@ -19,6 +19,16 @@
               <span>{{ serie.rating || "N/A" }}</span>
             </strong>
           </div>
+          <div>
+            <strong>Description: </strong>
+            <strong
+              *ngIf="serie?.description"
+              [innerHTML]="serie?.description"
+            ></strong>
+            <strong *ngIf="!serie?.description"
+              >The description is not available.</strong
+            >
+          </div>
         </div>
       </div>
     </div>

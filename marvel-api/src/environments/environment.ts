@@ -11,7 +11,8 @@ export const environment = {
     appErrorPrefix: '[Angular Marvel Error] ',
     appTitle: 'Angular Marvel',
     version: '1.4.0',
-    charactersLimit: 20
+    Offset: 0, 
+    Limit: 100,
   }
 };
 

@@ -25,29 +25,30 @@ export class ComicsService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data comics: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
       );
   }
   getComicsById(id: number): Observable<any> {
-    console.log('Si entro: ', id);
     return this.http
       .get<any>(`${environment.URL_API}comics/${id}`, {
         params: {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getComicsById: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
@@ -60,11 +61,12 @@ export class ComicsService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getComicsIdCharacter: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
@@ -78,11 +80,12 @@ export class ComicsService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getComicsIdcreators: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)

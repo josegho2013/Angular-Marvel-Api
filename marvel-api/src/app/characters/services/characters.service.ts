@@ -25,11 +25,12 @@ export class CharactersService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
@@ -37,18 +38,18 @@ export class CharactersService {
   }
 
   getCharactersById(id: number): Observable<any> {
-    console.log('Si entro: ', id);
     return this.http
       .get<any>(`${environment.URL_API}characters/${id}`, {
         params: {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getCharactersById: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
@@ -62,11 +63,12 @@ export class CharactersService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getCharacterIdComics: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
@@ -80,11 +82,12 @@ export class CharactersService {
           ts: 1,
           apikey: environment.PUBLIC_KEY,
           hash: environment.HASH,
+          offset: environment.settings.Offset, 
+          limit: environment.settings.Limit,
         },
       })
       .pipe(
         map((data: any) => {
-          console.log('Data getCharacterIdSeries: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)

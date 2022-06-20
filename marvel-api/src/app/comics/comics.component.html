@@ -1,5 +1,8 @@
-<div class="cards">
-  <div *ngFor="let comic of allComics | async">
+<div class="search-bar">
+  <input type="text" class="search" placeholder="Search by name..." (keyup)="searchTerm$.next($event.target.value)">
+</div>
+<div>
+  <div *ngFor="let comic of listFiltered$ | async">
     <app-card-comics [comic]="comic"></app-card-comics>
   </div>
 </div>

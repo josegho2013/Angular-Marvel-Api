@@ -17,5 +17,15 @@
     <h5 class="card-title">Ending Year: {{ serie?.endYear || 'N/A' }}</h5>
     <h5 class="card-title">Type: {{ serie?.type || 'N/A' }}</h5>
     <h5 class="card-title">Rating: {{ serie?.rating || 'N/A' }}</h5>
+    <h5 class="card-title">
+      <strong>Description: </strong>
+      <strong
+        *ngIf="serie?.description"
+        [innerHTML]="serie?.description"
+      ></strong>
+      <strong *ngIf="!serie?.description"
+        >The description is not available.</strong
+      >
+    </h5>
   </div>
 </div>
