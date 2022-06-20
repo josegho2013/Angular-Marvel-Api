@@ -1,15 +1,107 @@
-<div class="cards">
-    <div *ngFor="let creator of creatorsById | async">
-        hola001
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let comics of creatorsIdComics | async">
-        hola002
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let series of creatorsIdSeries | async">
-        hola003
-      <!-- <app-card [character]="character"></app-card> -->
+<div class="detail_container">
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+
+  <div *ngFor="let creator of creatorsById | async">
+    <div *ngIf="creator.id">
+      <div class="detail_card">
+        <img
+          src="{{ creator?.thumbnail?.path }}.{{ creator?.thumbnail?.extension }}"
+          alt="{{ creator?.fullName }}"
+        />
+        <div class="detail_character">
+          <h2>Full Name:{{ creator?.fullName }}</h2>
+          <div>
+            <strong>First Name: </strong>
+            <strong *ngIf="creator?.firstName" [innerHTML]="creator?.firstName"></strong>
+            <strong *ngIf="!creator?.firstName">N/A.</strong>
+          </div>
+          <div>
+            <strong>Middle Name: </strong>
+            <strong *ngIf="creator?.middleName" [innerHTML]="creator?.middleName"></strong>
+            <strong *ngIf="!creator?.middleName">N/A.</strong>
+          </div>
+          <div>
+            <strong>Last Name: </strong>
+            <strong *ngIf="creator?.lastName" [innerHTML]="creator?.lastName"></strong>
+            <strong *ngIf="!creator?.lastName">N/A.</strong>
+          </div>          
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="detail_card comic">
+    <h2>List of Creator Comic´s</h2>
+    <!-- <div class="comics" *ngIf="(comicsIdCharacters | json) !== '{}' || !comicsIdCharacters.length">No information to display</div> -->
+    <div class="comics" *ngFor="let comic of creatorsIdComics | async">
+      <img class="smallImg"
+        src="{{ comic?.thumbnail?.path }}.{{comic?.thumbnail?.extension}}"
+        alt="{{ comic?.name }}"
+      />
+      <div class="detail_comics">
+        <h2 class="linkTo" (click)="goToDetailcomic(comic?.id)">
+          {{ comic?.title }}
+        </h2>
+        <div>
+          <strong
+            >Price:
+            <span
+              *ngIf="comic?.prices[0].price; else notPrice"
+              [innerHTML]="'$ ' + comic?.prices[0].price"
+            ></span>
+            <ng-template #notPrice><span>$ 0.00</span></ng-template>
+          </strong>
+        </div>
+        <div *ngFor="let creator of creatorsById | async">
+          <div class="detail_character flex" *ngFor="let i of comic?.creators?.items">
+            <h4 *ngIf="i.name === creator?.firstName" class="characterName">Creator: {{ i?.name  }}</h4>
+            <strong *ngIf="i.name === creator?.firstName">Role:
+              <span>{{ i?.role || "N/A" }}</span>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail_card comic">
+    <h2>List of Creator Serie´s</h2>
+    <!-- <div class="comics" *ngIf="(comicsIdCharacters | json) !== '{}' || !comicsIdCharacters.length">No information to display</div> -->
+    <div class="comics" *ngFor="let serie of creatorsIdSeries | async">
+      <img class="smallImg"
+        src="{{ serie?.thumbnail?.path }}.{{serie?.thumbnail?.extension}}"
+        alt="{{ serie?.title }}"
+      />
+      <div class="detail_comics">
+        <h2 class="linkTo" (click)="goToDetailSerie(serie?.id)">
+          {{ serie?.title }}
+        </h2>
+        <div>
+          <strong>Type:
+            <span>{{ serie?.type || 'N/A' }}</span>
+          </strong>
+        </div>
+        <div>
+          <strong>Rating:
+            <span>{{ serie.rating || 'N/A' }}</span>
+          </strong>
+        </div> 
+        <div *ngFor="let creator of creatorsById | async">
+          <div class="detail_character flex" *ngFor="let i of serie?.creators?.items">
+            <h4 *ngIf="i.name === creator?.firstName" class="characterName">Creator: {{ i?.name  }}</h4>
+            <strong *ngIf="i.name === creator?.firstName">Role:
+              <span>{{ i?.role || "N/A" }}</span>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+</div>
 

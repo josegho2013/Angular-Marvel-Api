@@ -1,14 +1,74 @@
-<div class="cards">
-    <div *ngFor="let comic of comicsById | async">
-        hola01
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let characters of comicsIdCharacters | async">
-        hola02
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let creators of comicsIdCreators | async">
-        hola03
-      <!-- <app-card [character]="character"></app-card> -->
+<div class="detail_container">
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+
+  <div *ngFor="let comic of comicsById | async">
+    <div *ngIf="comic.id">
+      <div class="detail_card">
+        <img
+          src="{{ comic?.thumbnail?.path }}.{{ comic?.thumbnail?.extension }}"
+          alt="{{ comic?.title }}"
+        />
+        <div class="detail_character">
+          <h2>{{ comic.title }}</h2>
+          <div>
+            <strong>Description: </strong>
+            <strong
+              *ngIf="comic?.description"
+              [innerHTML]="comic?.description"
+            ></strong>
+            <strong *ngIf="!comic?.description"
+              >The description is not available.</strong
+            >
+          </div>
+          <div>
+            <strong
+              >Price:
+              <span
+                *ngIf="comic?.prices[0].price; else notPrice"
+                [innerHTML]="'$ ' + comic?.prices[0].price"
+              ></span>
+              <ng-template #notPrice><span>$ 0.00</span></ng-template>
+            </strong>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="detail_card comic">
+    <h2>List of Comic Characters´s</h2>
+    <div class="comics" *ngFor="let character of comicsIdCharacters | async">
+      <img
+        class="smallImg"
+        src="{{ character?.thumbnail?.path }}.{{
+          character?.thumbnail?.extension
+        }}"
+        alt="{{ character?.name }}"
+      />
+      <div class="detail_character">
+        <h2 class="linkTo" (click)="goToDetailCharacter(character?.id)">
+          {{ character?.name }}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail_card comic">
+    <h2>List of Comic Creator´s</h2>
+    <div class="comics block" *ngFor="let comic of comicsById | async">
+      <div class="detail_character flex" *ngFor="let i of comic?.creators?.items">
+        <h4 class="characterName linkTo" (click)="goToDetailCreators(i?.resourceURI.split('/').slice(-1)[0])">{{ i?.name }}</h4>
+        <strong
+          >Role:
+          <span>{{ i?.role || "N/A" }}</span>
+        </strong>
+      </div>
+    </div>
+  </div>
+
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+</div>

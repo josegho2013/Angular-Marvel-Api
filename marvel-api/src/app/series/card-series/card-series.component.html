@@ -1,15 +1,21 @@
 <div class="card">
-    <img
-      src="{{ serie?.thumbnail?.path }}.{{ serie?.thumbnail?.extension }}"
-      alt="{{ serie?.title }}"
-    />
-    <div class="card-body">
-      <h5 class="card-title">{{ serie?.title }}</h5>
-      <h5 class="card-title">Writer: {{ serie?.creators?.items[0]?.name }}</h5>
-      <h5 class="card-title">Starting year: {{ serie?.startYear }}</h5>
-      <h5 class="card-title">Ending Year: {{ serie?.endYear }}</h5>
-      <h5 class="card-title">Type: {{ serie?.type }}</h5>
-      <h5 class="card-title">Rating: {{ serie?.rating }}</h5>
-
-    </div>
+  <img
+    src="{{ serie?.thumbnail?.path }}.{{ serie?.thumbnail?.extension }}"
+    alt="{{ serie?.title }}"
+    (click)="goToDetailSeries(serie?.id)"
+  />
+  <div class="card-body">
+    <h2 class="card-title">{{ serie?.title }}</h2>
+    <h5 class="card-title">
+      <strong>Writer:
+        <span *ngFor="let item of serie?.creators?.items">
+          <span *ngIf="item.role === 'writer'" [innerHTML]="item?.name"></span>
+        </span>
+      </strong>
+    </h5>
+    <h5 class="card-title">Starting year: {{ serie?.startYear || 'N/A' }}</h5>
+    <h5 class="card-title">Ending Year: {{ serie?.endYear || 'N/A' }}</h5>
+    <h5 class="card-title">Type: {{ serie?.type || 'N/A' }}</h5>
+    <h5 class="card-title">Rating: {{ serie?.rating || 'N/A' }}</h5>
   </div>
+</div>

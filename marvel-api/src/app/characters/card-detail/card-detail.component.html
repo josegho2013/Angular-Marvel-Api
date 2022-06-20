@@ -1,14 +1,122 @@
-<div class="cards">
-    <div *ngFor="let detail of characterById | async">
-        hola
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let comics of characteIdComics | async">
-        holita
-      <!-- <app-card [character]="character"></app-card> -->
-    </div>
-    <div *ngFor="let series of characterIdSeries | async">
-        holota
-      <!-- <app-card [character]="character"></app-card> -->
+<div class="detail_container">
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+
+  <div *ngFor="let detail of characterById | async">
+    <div *ngIf="detail.id">
+      <div class="detail_card">
+        <img
+          src="{{ detail?.thumbnail?.path }}.{{ detail?.thumbnail?.extension }}"
+          alt="{{ detail?.name }}"
+        />
+        <div class="detail_character">
+          <h2>{{ detail.name }}</h2>
+          <div>
+            <strong>Description: </strong>
+            <strong
+              *ngIf="detail?.description"
+              [innerHTML]="detail?.description"
+            ></strong>
+            <strong *ngIf="!detail?.description"
+              >The description is not available.</strong
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="detail_card comic">
+    <h2>List of Character Comic´s</h2>
+    <div class="comics" *ngFor="let comic of characteIdComics | async">
+      <img
+        class="smallImg"
+        src="{{ comic?.thumbnail?.path }}.{{ comic?.thumbnail?.extension }}"
+        alt="{{ comic?.name }}"
+      />
+      <div class="detail_character">
+        <h2>{{ comic.name }}</h2>
+        <div>
+          <strong
+            >Description:
+            <span
+              *ngIf="comic?.description"
+              [innerHTML]="comic?.description"
+            ></span>
+            <span *ngIf="!comic?.description"
+              >The description is not available.</span
+            >
+          </strong>
+        </div>
+
+        <div>
+          <strong>Writer:
+            <span *ngFor="let item of comic.creators.items">
+              <span *ngIf="item.role === 'writer'" [innerHTML]="item?.name"></span>
+            </span>
+          </strong>
+        </div>
+        <div>
+          <strong
+            >Author:
+            <span *ngFor="let item of comic.creators.items">
+              <span
+                *ngIf="item.role === 'author'"
+                [innerHTML]="item?.name"
+              ></span>
+            </span>
+          </strong>
+        </div>
+        <div>
+          <strong
+            >Price:
+            <span
+              *ngIf="comic.prices[0].price; else notPrice"
+              [innerHTML]="'$ ' + comic?.prices[0].price"
+            ></span>
+            <ng-template #notPrice><span>$ 0.00</span></ng-template>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail_card comic">
+    <h2>List of Character Serie´s</h2>
+    <div class="comics" *ngFor="let serie of characterIdSeries | async">
+      <img
+        class="smallImg"
+        src="{{ serie?.thumbnail?.path }}.{{ serie?.thumbnail?.extension }}"
+        alt="{{ serie?.title }}"
+      />
+      <div class="detail_character">
+        <h4>{{ serie.title }}</h4>
+        <div>
+          <strong>Starting Year:
+            <span>{{ serie.startYear || 'N/A' }}</span>
+          </strong>
+        </div>
+        <div>
+          <strong>Ending Year:
+            <span>{{ serie.endYear || 'N/A' }}</span>
+          </strong>
+        </div>
+        <div>
+          <strong>Type:
+            <span>{{ serie?.type || 'N/A' }}</span>
+          </strong>
+        </div>
+        <div>
+          <strong>Rating:
+            <span>{{ serie.rating || 'N/A' }}</span>
+          </strong>
+        </div>     
+      </div>
+    </div>
+  </div>
+
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+</div>

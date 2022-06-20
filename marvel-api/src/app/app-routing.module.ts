@@ -6,7 +6,9 @@ import { SeriesComponent } from './series/series.component';
 import { CreatorsComponent } from './creators/creators.component';
 import { CardDetailComponent } from './characters/card-detail/card-detail.component';
 import { ComicsCardDetailComponent } from './comics/comics-card-detail/comics-card-detail.component';
-import{CreatorsCardDetailComponent}  from "./creators/creators-card-detail/creators-card-detail.component"
+import { CreatorsCardDetailComponent } from './creators/creators-card-detail/creators-card-detail.component';
+import { SeriesCardDetailComponent } from './series/series-card-detail/series-card-detail.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -44,6 +46,10 @@ const routes: Routes = [
   {
     path: `creators/detail/:id`,
     component: CreatorsCardDetailComponent,
+  },
+  {
+    path: `series/detail/:id`,
+    component: SeriesCardDetailComponent,
   },
 ];
 

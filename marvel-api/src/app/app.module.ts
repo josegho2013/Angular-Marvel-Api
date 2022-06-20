@@ -21,6 +21,7 @@ import { CardSeriesComponent } from './series/card-series/card-series.component'
 import { CreatorsCardDetailComponent } from './creators/creators-card-detail/creators-card-detail.component';
 import { ComicsCardDetailComponent } from './comics/comics-card-detail/comics-card-detail.component';
 import { SeriesCardDetailComponent } from './series/series-card-detail/series-card-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SeriesCardDetailComponent } from './series/series-card-detail/series-ca
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
 

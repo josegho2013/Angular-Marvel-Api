@@ -1,26 +1,35 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ComicsService } from '../service/comics.service';
 import { EMPTY, Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comics-card-detail',
   templateUrl: './comics-card-detail.component.html',
-  styleUrls: ['./comics-card-detail.component.css']
+  styleUrls: ['./comics-card-detail.component.css'],
 })
 export class ComicsCardDetailComponent implements OnInit {
-
-  constructor( private comicsService :ComicsService ,private route: ActivatedRoute  ) { }
+  constructor(
+    private comicsService: ComicsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   comicsById: Observable<any> = EMPTY;
   comicsIdCharacters: Observable<any> = EMPTY;
   comicsIdCreators: Observable<any> = EMPTY;
 
   ngOnInit(): void {
-    console.log("Aquiiii")
     this.getComicsById();
     this.getComicsIdCharacter();
     this.getComicsIdCreators();
+  }
 
+  goToDetailCharacter(id: number) {
+    this.router.navigate([`home/detail/${id}`]);
+  }
+  goToDetailCreators(id: number) {
+    this.router.navigate([`creators/detail/${id}`]);
   }
 
   getComicsById() {
@@ -35,5 +44,4 @@ export class ComicsCardDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.comicsIdCreators = this.comicsService.getComicsIdCreators(id);
   }
-
 }

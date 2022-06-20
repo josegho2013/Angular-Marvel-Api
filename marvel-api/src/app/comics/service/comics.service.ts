@@ -88,6 +88,4 @@ export class ComicsService {
         catchError(this.handleError)
       );
   }
-
-
 }

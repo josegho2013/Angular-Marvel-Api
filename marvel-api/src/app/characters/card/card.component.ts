@@ -13,7 +13,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
 
   goToDetail(id: number) {
-    console.log('ID: ', id);
     this.router.navigate([`home/detail/${id}`]);
   }
 }

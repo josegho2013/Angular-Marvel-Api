@@ -82,15 +82,10 @@ export class CreatorsService {
       })
       .pipe(
         map((data: any) => {
-          console.log('Data  getCreatorsIdseries: ', data.data.results);
+          console.log('Data getCreatorsIdseries: ', data.data.results);
           return data.data.results;
         }),
         catchError(this.handleError)
       );
   }
-
-
-
-
-
 }

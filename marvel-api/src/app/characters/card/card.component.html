@@ -5,11 +5,8 @@
     (click)="goToDetail(character?.id)"
   />
   <div class="card-body">
-    <h5 class="card-title">{{ character?.name }}</h5>
+    <h2 class="card-title">{{ character?.name }}</h2>
     <h5 class="card-title">N° Comics: {{ character?.stories?.available }}</h5>
     <h5 class="card-title">N° Series: {{ character?.series?.available }}</h5>
-    <a link href="{{ character.urls[0].url }}" target="_blank">
-      <Button variant="info" type="submit" button> Details </Button>
-    </a>
   </div>
 </div>

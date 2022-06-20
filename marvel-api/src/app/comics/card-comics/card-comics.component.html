@@ -6,12 +6,26 @@
   />
 
   <div class="card-body">
-    <h5 class="card-title">{{ comic?.title }}</h5>
-    <h5 class="card-title">Writer: {{ comic?.creators?.items[0]?.name }}</h5>
-    <h5 class="card-title">Author: {{ comic?.creators?.items[0]?.name }}</h5>
-    <h5 class="card-title">Price: $ {{ comic?.prices[0].price }}</h5>
+    <h2 class="card-title">{{ comic?.title }}</h2>
     <h5 class="card-title">
-      Description: <span [innerHTML]="comic?.description"></span>
+      <strong>Writer:
+        <span *ngFor="let item of comic?.creators?.items">
+          <span *ngIf="item.role === 'writer'" [innerHTML]="item?.name"></span>
+        </span>
+      </strong>
+    </h5>
+    <h5 class="card-title">
+      <strong>Author:
+        <span *ngFor="let item of comic?.creators?.items">
+          <span *ngIf="item.role === 'author'" [innerHTML]="item?.name"></span>
+        </span>
+      </strong>
+    </h5>
+    <h5 class="card-title">Price: $ {{ comic?.prices[0].price || 'N/A' }}</h5>
+    <h5 class="card-title">
+      <span>Description: </span>
+      <span *ngIf="comic?.description" [innerHTML]="comic?.description"></span>
+      <span *ngIf="!comic?.description">The description is not available.</span>
     </h5>
   </div>
 </div>

@@ -1,5 +1,10 @@
 <div class="cards">
-  <div *ngFor="let character of allCharacters | async">
+  <!-- <div class="search-bar">
+    <input type="text" class="search" placeholder="¡Comienza a buscar tu plato favorito!" (keyup)="searchTerm$.next($event.target.value)">
+  </div> -->
+  <div *ngFor="let character of listFiltered$ | async">
     <app-card [character]="character"></app-card>
   </div>
 </div>
+
+<!-- (keyup)="filterList($event)" -->

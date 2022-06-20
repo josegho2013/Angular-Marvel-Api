@@ -1,1 +1,30 @@
-<p>series-card-detail works!</p>
+<div class="detail_container">
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+
+  <div *ngFor="let serie of seriesById | async">
+    <div *ngIf="serie.id">
+      <div class="detail_card">
+        <img src="{{ serie?.thumbnail?.path }}.{{ serie?.thumbnail?.extension }}" alt="{{ serie?.title }}"/>
+        <div class="detail_character">
+          <h2>{{ serie?.title }}</h2>
+          <div>
+            <strong>Type:
+              <span>{{ serie?.type || "N/A" }}</span>
+            </strong>
+          </div>
+          <div>
+            <strong>Rating:
+              <span>{{ serie.rating || "N/A" }}</span>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div routerLink="home" class="back">
+    <button routerLink="/home">Go Home!</button>
+  </div>
+</div>

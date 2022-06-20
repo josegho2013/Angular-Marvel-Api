@@ -9,19 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./card-detail.component.css'],
 })
 export class CardDetailComponent implements OnInit {
-  constructor(private characterService: CharactersService, private route: ActivatedRoute ) {}
+  @Input() detail: any;
+
+  constructor(
+    private characterService: CharactersService,
+    private route: ActivatedRoute,
+  ) {}
 
   characterById: Observable<any> = EMPTY;
   characteIdComics: Observable<any> = EMPTY;
   characterIdSeries: Observable<any> = EMPTY;
 
   ngOnInit() {
-    console.log("Aquiiii")
     this.getCharactersById();
     this.getCharacterIdComics();
     this.getCharacterIdSeries();
   }
-  // @param idCharacter
 
   getCharactersById() {
     const id = Number(this.route.snapshot.paramMap.get('id'));

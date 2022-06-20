@@ -35,4 +35,22 @@ export class SeriesService {
         catchError(this.handleError)
       );
   }
+  getSeriesById(id: number): Observable<any> {
+    console.log('Si entro: ', id);
+    return this.http
+      .get<any>(`${environment.URL_API}series/${id}`, {
+        params: {
+          ts: 1,
+          apikey: environment.PUBLIC_KEY,
+          hash: environment.HASH,
+        },
+      })
+      .pipe(
+        map((data: any) => {
+          console.log('Data getSeriesById: ', data.data.results);
+          return data.data.results;
+        }),
+        catchError(this.handleError)
+      );
+  }
 }
