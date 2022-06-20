@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
+<img height="100%" width="100%" src="src/assets/series.png" />
+<img height="100%" width="100%" src="src/assets/cardDetail.png" />
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
