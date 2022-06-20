@@ -1,6 +1,36 @@
 <div class="search-bar">
-  <input type="text" class="search" placeholder="Search by name..." (keyup)="searchTerm$.next($event.target.value)">
+  <div class="option">
+    <span>Search:</span>
+    <input
+      type="text"
+      class="search"
+      placeholder="Search by name..."
+      (keyup)="searchTerm$.next($event.target.value)"
+    />
+  </div>
+  <div class="option">
+    <span>Type:</span>
+    <select (change)="filterType($event)">
+      <option value="">Select...</option>
+      <option value="collection">Collection</option>
+      <option value="limited">Limited</option>
+      <option value="one shot">One Shot</option>
+      <option value="ongoing">Ongoing</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <span>Rating:</span>
+    <select (change)="filterRating($event)">
+      <option value="">Select...</option>
+      <option value="t">T</option>
+      <option value="t+">T+</option>
+      <option value="psr">PSR</option>
+      <option value="marvel psr">Marvel PSR</option>
+    </select>
+  </div>
 </div>
+
 <div>
   <div *ngFor="let serie of listFiltered$ | async">
     <app-card-series [serie]="serie"></app-card-series>

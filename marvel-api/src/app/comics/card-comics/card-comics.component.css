@@ -8,13 +8,14 @@ img {
   display: flex;
   min-height: 374px;
   max-height: 374px;
+  cursor: pointer;
 }
 .card {
   margin: 2rem;
 }
 .card-body {
   margin-top: 0.2rem;
-  background: #c8c6a7;
+  background: #b787a8;
   border-radius: 0rem 0rem 1rem 1rem;
   border: solid 0.1rem #435560;
 }

@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;600&display=swap");
+
+.footer_container {
+  display: flex;
+  margin: auto;
+  padding: 10px 9%;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  font-family: "Urbanist";
+}
+.footer_container h1 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 20px;
+  color: white;
+}

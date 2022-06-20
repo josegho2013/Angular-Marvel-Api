@@ -54,4 +54,32 @@ export class SeriesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.OnDestroy$.next(Subject);
   }
+  async filterType(e: any) {
+    var aux = await rxjs.lastValueFrom(rxjs.from(this.allSeries).pipe(rxops.toArray()))
+    if(e.target.value){
+      this.secondtest = []
+      for (let i = 0; i < aux[0].length; i++) {
+        if(aux[0][i].type.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0){
+         this.secondtest.push(aux[0][i])
+        }
+      }
+      return this.listFiltered$ = of(this.secondtest)
+    } else {
+      this.listFiltered$ = this.allSeries
+    }
+  }
+  async filterRating(e: any) {
+    var aux = await rxjs.lastValueFrom(rxjs.from(this.allSeries).pipe(rxops.toArray()))
+    if(e.target.value){
+      this.secondtest = []
+      for (let i = 0; i < aux[0].length; i++) {
+        if(aux[0][i].rating.toLowerCase() === (e.target.value.toLowerCase()) || aux[0][i].rating.toLowerCase().split(' ')[1] === (e.target.value.toLowerCase())){
+         this.secondtest.push(aux[0][i])
+        }
+      }
+      return this.listFiltered$ = of(this.secondtest)
+    } else {
+      this.listFiltered$ = this.allSeries
+    }
+  }
 }
